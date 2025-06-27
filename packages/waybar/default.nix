@@ -6,6 +6,7 @@
 
 let
   config = ./config.jsonc;
+  style = ./style.css;
 in
 pkgs.waybar.overrideAttrs (oldAttrs: {
   buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ pkgs.makeWrapper ];
@@ -18,6 +19,6 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
       mv $out/bin/waybar $out/libexec/waybar-unwrapped
 
       makeWrapper $out/libexec/waybar-unwrapped $out/bin/waybar \
-        --add-flags "-c ${config}"
+        --add-flags "-c ${config} -s ${style}"
     '';
 })

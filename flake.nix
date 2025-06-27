@@ -3,39 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    waybar.url = "github:Alexays/Waybar";
+
+    snowfall = {
+      url = "github:snowfallorg/lib/dev";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    {
-      nixpkgs,
-      flake-parts,
-      waybar,
-      ...
-    }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "aarch64-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
+    inputs:
+    inputs.snowfall.mkFlake {
+      inherit inputs;
+      src = ./.;
 
-      perSystem =
-        {
-          system,
-          pkgs,
-          self',
-          lib,
-          ...
-        }:
-        {
-          formatter = pkgs.nixfmt-rfc-style;
+      overlay-package-namespace = "snowfallorg";
 
-          packages = {
-            default = waybar;
-          };
-        };
+      alias.packages.default = "waybar";
     };
 }

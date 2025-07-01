@@ -72,7 +72,7 @@
     "tooltip": false
   },
   "memory": {
-    "format": "{}% Mem"
+    "format": "{}% ⌭"
   },
   "battery": {
     "states": {
@@ -97,7 +97,7 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{signalStrength}% (d {bandwidthDownBytes}B/s:u {bandwidthUpBytes}B/s)",
+    "format-wifi": "{signalStrength}% |d {bandwidthDownBytes}|--|u {bandwidthUpBytes}|",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",

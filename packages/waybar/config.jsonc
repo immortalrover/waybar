@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
-  // "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
@@ -9,8 +9,6 @@
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
-    //        "sway/scratchpad",
-    //        "custom/media"
   ],
   "modules-center": [],
   "modules-right": [
@@ -18,35 +16,20 @@
     "network",
     "cpu",
     "memory",
-    // "pulseaudio",
     "battery",
     "clock",
     "tray"
   ],
   // Modules configuration
-  // "sway/workspaces": {
-  //     "disable-scroll": true,
-  //     "all-outputs": true,
-  //     "warp-on-scroll": false,
-  //     "format": "{name}: {icon}",
-  //     "format-icons": {
-  //         "1": "",
-  //         "2": "",
-  //         "3": "",
-  //         "4": "",
-  //         "5": "",
-  //         "urgent": "",
-  //         "focused": "",
-  //         "default": ""
-  //     }
-  // },
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{id}"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Chromium": "🌎 $1",
+      "(.*)@(.*): (.*)": "> $3"
     }
   },
   "mpd": {
@@ -75,20 +58,9 @@
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)"
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
   "tray": {
     "icon-size": 18,
     "spacing": 10
-    // "icons": {
-    //   "blueman": "bluetooth",
-    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    // }
   },
   "clock": {
     // "timezone": "America/New_York",
@@ -125,7 +97,7 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "{signalStrength}% (d {bandwidthDownBytes}B/s:u {bandwidthUpBytes}B/s)",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",

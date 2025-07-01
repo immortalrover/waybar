@@ -20,7 +20,8 @@
     "memory",
     // "pulseaudio",
     "battery",
-    "clock"
+    "clock",
+    "tray"
   ],
   // Modules configuration
   // "sway/workspaces": {
@@ -82,7 +83,7 @@
     }
   },
   "tray": {
-    // "icon-size": 21,
+    "icon-size": 18,
     "spacing": 10
     // "icons": {
     //   "blueman": "bluetooth",

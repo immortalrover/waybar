@@ -12,8 +12,8 @@ window#waybar {
 
 tooltip {
   background: #0d1117;
-  border-radius: 10px;
-  /*border: 1px solid #21262d;*/
+  border-radius: 8px;
+  border: 1px solid #21262d;
 }
 
 tooltip label {
@@ -22,6 +22,7 @@ tooltip label {
 
 #workspaces {
   border-radius: 0 12px 12px 0;
+  margin: 0;
   background-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -29,6 +30,7 @@ tooltip label {
   /*min-width: 15px;*/
   padding: 0 3px;
   border-radius: 14px;
+  margin: 2px 0;
 }
 
 #workspaces button:not(:last-child) {
